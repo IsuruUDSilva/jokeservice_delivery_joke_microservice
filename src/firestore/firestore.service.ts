@@ -14,7 +14,7 @@ export class FirestoreService {
 
   async getAll(): Promise<any[]> {
     const firestore = this.firebaseService.getFirestore();
-    const jokesSnapshot = await firestore.collection('Joke').get();
+    const jokesSnapshot = await firestore.collection('Jokes').get();
     const jokes = jokesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     return jokes;
   }
